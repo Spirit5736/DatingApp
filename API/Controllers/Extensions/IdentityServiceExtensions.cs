@@ -8,19 +8,27 @@ namespace API.Controllers.Extensions
 {
     public static class IdentityServiceExtensions
     {
-        public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection
+        AddIdentityServices(
+            this IServiceCollection services,
+            IConfiguration config
+        )
         {
-             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
+            services
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
                 {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"])),
-                    ValidateAudience = false,
-                    ValidateIssuer = false,
-                };
-            });
+                    options.TokenValidationParameters =
+                        new TokenValidationParameters {
+                            ValidateIssuerSigningKey = true,
+                            IssuerSigningKey =
+                                new SymmetricSecurityKey(Encoding
+                                        .UTF8
+                                        .GetBytes(config["TokenKey"])),
+                            ValidateAudience = false,
+                            ValidateIssuer = false
+                        };
+                });
             return services;
         }
     }
