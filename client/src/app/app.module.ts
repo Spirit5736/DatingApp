@@ -42,10 +42,11 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,    
-    SharedModule
+    SharedModule,
+    ServerErrorComponent,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
