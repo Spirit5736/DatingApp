@@ -21,10 +21,10 @@
         </div>
       </div>
       <div class="card-footer">
-          <div class="btn-group d-flex">
-              <button class="btn btn-primary">Like</button>
-              <button class="btn btn-success">Message</button>
-          </div>          
+        <div class="btn-group d-flex">
+          <button class="btn btn-primary">Like</button>
+          <button class="btn btn-success">Message</button>
+        </div>
       </div>
     </div>
   </div>
@@ -36,18 +36,18 @@
         <p>{{member.introduction}}</p>
         <h4>Looking For</h4>
         <p>{{member.lookingFor}}</p>
-        </tab>
-        <tab heading='Interests'>
-          <h4>Interests</h4>
-          <p>{{member.interests}}</p>
-          </tab>
-          <tab heading='Photos'>
-            <ngx-gallery [options]="galleryOptions" [images]="galleryImages" 
-            style="display: inline-block; margin-bottom: 20px;"> </ngx-gallery>
-            </tab>
-            <tab heading='Messages'>
-              <p>Messages will go here</p>
-            </tab>
+      </tab>
+      <tab heading='Interests'>
+        <h4>Interests</h4>
+        <p>{{member.interests}}</p>
+      </tab>
+      <tab heading='Photos'>
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"
+          style="display: inline-block; margin-bottom: 20px;"> </ngx-gallery>
+      </tab>
+      <tab heading='Messages'>
+        <p>Messages will go here</p>
+      </tab>
     </tabset>
   </div>
 </div>
