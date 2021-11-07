@@ -13,10 +13,10 @@ import { take } from 'rxjs/operators';
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor(private accountService: AccountService) {}
+  constructor(private accountService: AccountService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let currentUser: User ={} as User;
+    let currentUser: User = {} as User;
 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => currentUser = user);
     if (currentUser) {
