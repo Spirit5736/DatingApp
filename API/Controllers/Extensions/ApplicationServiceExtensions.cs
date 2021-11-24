@@ -12,7 +12,8 @@ namespace API.Controllers.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration _config)
         {
-             services.AddScoped<ITokenService, TokenService>();
+            services.Configure<CloudinarySettings>(_config.GetSection("CloudinarySettings"));
+            services.AddScoped<ITokenService, TokenService>();
              services.AddScoped<IUserRepository, UserRepository>();
              services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
              services.AddDbContext<DataContext>(options =>
