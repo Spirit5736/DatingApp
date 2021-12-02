@@ -17,7 +17,7 @@ export class MemberEditComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
   member: Member;
   user: User;
-  @HostListener('window:beforeunload', ['$event']) unloadNotification($event: any){
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event: any) {
     if (this.editForm.dirty) {
       $event.returnValue = true;
     }
@@ -42,7 +42,7 @@ export class MemberEditComponent implements OnInit {
       this.toastr.success('Profile updated successfully');
       this.editForm.reset(this.member);
     })
-    
+
   }
 
 }
