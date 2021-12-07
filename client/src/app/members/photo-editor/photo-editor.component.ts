@@ -21,7 +21,7 @@ export class PhotoEditorComponent implements OnInit {
 
   constructor(private accountService: AccountService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
-   }
+  }
 
   ngOnInit(): void {
     this.initializeUploader();
@@ -31,13 +31,13 @@ export class PhotoEditorComponent implements OnInit {
     this.hasBaseDropZoneOver = e;
   }
 
-  public fileOverAnother(e:any):void {
+  public fileOverAnother(e: any): void {
     this.hasAnotherDropZoneOver = e;
   }
 
   initializeUploader() {
     this.uploader = new FileUploader({
-      url:  this.baseUrl + 'users/add-photo',
+      url: this.baseUrl + 'users/add-photo',
       authToken: 'Bearer ' + this.user.token,
       isHTML5: true,
       allowedFileType: ['image'],
